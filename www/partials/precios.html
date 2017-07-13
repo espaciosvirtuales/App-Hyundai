@@ -1,0 +1,40 @@
+<header class="bar bar-nav">
+  <a href="#/" class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">Precios</h1>
+</header>
+<div class="contenido rojo" style="">
+<img src="img/banner-precios.jpg" style="width: 100%; display: block;">
+<div class="bar bar-standard" id="precios_header">
+  <div class="segmented-control">
+      <a class="control-item" ng-class="{active: tab_mant}" ng-click="tab_mant = true">MANTENIMIENTO</a>
+      <a class="control-item" ng-class="{active: !tab_mant}" ng-click="tab_mant = false">GARANTÍA</a>
+    </div>
+</div>
+
+<ul class="table-view" ng-show="tab_mant" style="margin-top: 0; padding-top: 0;">
+  <li class="table-view-cell media" ng-repeat="item in mantenimiento">
+	  <a ng-click="item.abierto = !item.abierto" class="navigate-right" ng-class="{active:item.abierto}">
+      <div class="media-body">
+		  <strong>{{item.titulo}}</strong>
+		  <div class="detalles" ng-show="item.abierto">
+		  <br><div ng-bind-html="item.contenido"></div>
+	  	  </div>
+	  </div>
+	  </a>
+  </li>
+</ul>
+
+<ul class="table-view" ng-hide="tab_mant">
+  <li class="table-view-cell media" ng-repeat="item in garantia_extendida">
+	  <a ng-click="item.abierto = !item.abierto" class="navigate-right" ng-class="{active:item.abierto}">
+      <div class="media-body">
+		  <strong>{{item.titulo}}</strong>
+		  <div class="detalles" ng-show="item.abierto">
+		  <br><div ng-bind-html="item.contenido"></div>
+	  	  </div>
+	  </div>
+	  </a>
+  </li>
+</ul>
+
+</div>

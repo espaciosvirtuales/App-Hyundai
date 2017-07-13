@@ -1,0 +1,17 @@
+<header class="bar bar-nav">
+  <a href="#/dashboard" class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">Registrar Auto</h1>
+</header>
+<div class="content citas">
+	<div class="contenedor">
+			<label>Vehículo*:</label>
+			<input type="text" name="vehiculo" ng-model="vehiculo">
+			<label>Modelo*:</label>
+			<input type="text" name="modelo" ng-model="modelo">
+			<label>Color*:</label>
+			<input type="text" name="color" ng-model="color">
+			<label>Serie*:</label>
+			<input type="text" name="serie" ng-model="serie" placeholder="17 dígitos con letras y números">
+			<button class="btn btn-block btn-primary" ng-click="registrar_auto()">Añadir</button>
+	</div>
+</div>

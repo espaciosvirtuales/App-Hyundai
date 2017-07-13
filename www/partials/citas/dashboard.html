@@ -1,0 +1,23 @@
+<header class="bar bar-nav">
+  <a href="#/" class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">Citas de Servicio</h1>
+</header>
+<div class="content citas">
+	<div class="contenedor"><a href="#cita" class="btn btn-block naranja">Hacer una Cita</a></div>
+		
+		<ul class="table-view dark">
+			<li class="table-view-divider">
+				Mis Autos
+				<a class="media-object icon icon-plus pull-right" href="#/registrar_auto" style="margin-right: 10px; color: #FFF;"></a>
+			</li>
+			<li class="table-view-cell" ng-repeat="auto in autos"><strong>{{auto.vehiculo}} | {{auto.modelo}} | {{auto.color}}</strong><br>No. Serie: {{auto.serie}} <button class="btn" ng-click="eliminar_auto(auto.id)"><span class="icon icon-trash"></span></button></li>
+		</ul>
+		<ul class="table-view dark">
+			<li class="table-view-divider"><span class="media-object pull-left icon icon-person"></span>Mi cuenta</li>
+			<li class="table-view-cell"><strong>Nombre:</strong> {{usuario.nombre}} {{usuario.apellido}}</li>
+			<li class="table-view-cell"><strong>Telefono:</strong> {{usuario.telefono}}</li>
+			<li class="table-view-cell"><strong>Celular:</strong> {{usuario.celular}}</li>
+			<li class="table-view-cell"><strong>Correo:</strong> {{usuario.email}}</li>
+			<li class="table-view-cell"><strong>Compañía:</strong> {{usuario.compania}}</li>
+		</ul>
+</div>

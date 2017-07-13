@@ -1,0 +1,26 @@
+<header class="bar bar-nav">
+  <a href="#/" class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">Collision Center</h1>
+</header>
+
+<div class="content citas">
+	<div class="contenedor">
+	        <div class="row">
+	            <div class="col-xs-12">
+	                <h4>CONSULTA EL ESTADO DE TU CARRO</h4>
+					<div ng-hide="showinfo">
+		                Ingresa el número de órden y correo electrónico <span class="text-primary">(opcional)</span> para que veas en que etapa esta la reparación de tu auto.
+		                <br><br>
+		                    <label>No.  de Órden</label>
+		                    <input type="text" ng-model="param.orden" class="form-control"><br>
+		                    <label>Correo electrónico</label>
+		                    <input type="text" ng-model="param.email" class="form-control"><br>
+		                    <input type="hidden" ng-model="param.json">
+		                    <input type="hidden" ng-model="param.boton">
+		                    <p class="text-center"><input type="submit" class="btn btn-block btn-warning" ng-click="enviar()" value="Verificar"></p>
+					</div>
+					<div ng-show="showinfo" class=""><div ng-bind-html="informacion"></div></div>
+	            </div>
+	        </div>
+	    </div>
+</div>

@@ -1,0 +1,20 @@
+<header class="bar bar-nav">
+  <a href="#/" class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">Registrar Usuario</h1>
+</header>
+
+	<div class="content citas">
+		<div class="contenedor">
+			<h4>Ingrese su información</h4><br>
+				<input type="text" ng-model="usuario.nombre" class="form-control" placeholder="Nombre (requerido)">
+				<input type="text" ng-model="usuario.compania" class="form-control" placeholder="Compañía">
+				<input type="text" ng-model="usuario.correo" class="form-control email" placeholder="Email (requerido)">
+				<input type="text" ng-model="usuario.telefono" class="form-control telefono" placeholder="Teléfono">
+				<input type="text" ng-model="usuario.celular" class="form-control telefono" placeholder="Celular (requerido)"><hr>
+			<h5>Elija una contraseña</h5>
+			<small>Debe tener por lo menos una  letra mayúscula y un carater expecial %!@#$</small><br><br>
+				<input type="password" ng-model="usuario.contrasena" class="form-control" placeholder="Contraseña (requerido)">
+				<input type="password" ng-model="usuario.rep_contrasena" class="form-control" placeholder="Confirmar contraseña (requerido)">
+			<p class="text-right"><button class="btn btn-block btn-warning" ng-click="registro()">Registrarse</button></p>
+		</div>
+	</div>

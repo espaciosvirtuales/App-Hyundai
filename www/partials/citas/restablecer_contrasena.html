@@ -1,0 +1,15 @@
+<header class="bar bar-nav">
+  <a href="#/" class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">Registrar Usuario</h1>
+</header>
+<div class="content citas">
+	<div class="contenedor"><br>
+		<h4>Restablecimiento de contraseña</h4>
+		Ingrese el código que recibió en su correo y elija su nueva contraseña.<br><br>
+		<input type="text" ng-model="param.codigo" class="form-control" placeholder="clave">
+		<input type="text" ng-model="param.email" class="form-control" placeholder="email">
+		<input type="password" ng-model="param.password" class="form-control" placeholder="contraseña nueva">
+		<input type="password" ng-model="param.password_confirmation" class="form-control" placeholder="confirmar contraseña">
+		<p class="text-right"><button class="btn btn-warning btn-block" ng-click="restablecer()">Restablecer</button></p>
+	</div>
+</div>

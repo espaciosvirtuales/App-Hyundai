@@ -1,0 +1,24 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
+        }
+    },
+    "dependent_plugins": {}
+}
