@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">    
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="css/ratchet.min.css">
+	<link rel="stylesheet" href="css/ratchet-theme-ios.min.css">
+	<link rel="stylesheet" href="css/App.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="AldorfApp">
+    <!-- Add your site or application content here -->
+    <div class="container" ng-view></div>
+
+
+	<script src="cordova.js"></script>
+    <script src="components/angular.js"></script>
+	<script src="components/angular-route.js"></script>
+	<script src="components/angular-sanitize.js"></script>
+	<script src="components/angular-animate.js"></script>
+	<script src="components/jquery.min.js"></script>
+		<!-- 
+    <script src="components/bootstrap.js"></script>
+     -->
+    <script src="components/fastclick.min.js"></script>
+
+    <!-- build:js scripts/scripts.js -->
+    <script src="controllers/controllers.js"></script>
+	<script src="controllers/usuario.js"></script>
+	<script src="controllers/agencia.js"></script>
+    <script src="app.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

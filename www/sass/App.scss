@@ -1,0 +1,307 @@
+/*
+Mazda App
+*/
+$azul: #002c5f;
+$beige: #E4DBD2;
+body, .content, body > .container {
+	width: 100%;
+	height: 100%;
+	background: $beige;
+	.body_padding {
+		padding-top: 44px;
+	}
+	a {
+		color: $azul;
+	}
+}
+@keyframes slideOutLeft {
+	to { transform: translateX(-100%);}
+}
+@keyframes slideInRight {
+	from { transform: translateX(100%);}
+	to { transform: translateX(0);}
+}
+@keyframes fadeIn {
+	from { opacity: 0;}
+	to { opacity: 1;}
+}
+@keyframes fadeOut {
+	to { opacity: 0;}
+}
+//test
+#precios_header {
+	position: relative !important;
+}
+.container.ng-enter { animation: fadeIn 0.3s both ease-in; z-index: 99999;}
+.container.ng-leave { animation: fadeOut 0.3s both ease-in; z-index: 88888;}
+/* Style Tables */
+.table-view {
+	border: none;
+	background: none;
+	.media-object.icono {
+		max-width: 40px;
+	}
+	.table-view-cell {
+		&:nth-child(odd) {
+			background: lighten($beige,30%);
+		}
+		&:nth-child(even) {
+			background: $beige;
+		}
+		border-top: solid #FFF 1px;
+		color: #444;
+		.contrasenas {
+			margin: 5px;
+		}
+		a:not(.btn) {
+			color: #444;
+			&:active, &.active {
+				background: rgba(255,255,255,0.3);
+				color: #808080;
+			}
+			&.active {
+				color: #444;
+			}
+		}
+		> .btn.nofloat {
+			float: none;
+			position: static;
+			display: inline-block;
+		}
+		> a.navigate-right:after {
+			color: #FFF;
+		}
+	}
+	.table-view-divider {
+		background: darken($beige,30%);
+		color: #FFF;
+	}
+	table {
+		width: 100%;
+		text-align:center;
+		thead th {
+			background: $azul;
+			padding: 5px 0;
+			font-size: 14px;
+		}
+		td {
+			padding: 5px;
+			border: solid 1px darken($azul,15%);
+		}
+		td:first-child {
+			background: $azul;
+			color: #FFF;
+		}
+	}
+	&.dark .table-view-cell {
+		background: #FFF;
+		border-color: #CCC;
+		color: #555;
+		&.table-view-divider {
+			background: $beige;
+			color: #FFF;
+		}
+		a:not(.btn) {
+			display: inline;
+			color: $beige;
+			&:active, &.active {
+				background: none;
+				color: lighten($beige,25%);
+			}
+		}
+	}
+}
+.contenido {
+	padding-top: 44px; position:absolute; width: 100%; height: 100%;
+	overflow-y: scroll; /* has to be scroll, not auto */
+	-webkit-overflow-scrolling: touch;
+}
+.card {
+	background: darken($beige,30%);
+	color: #FFF;
+	padding: 5%;
+	border-color: lighten($beige,20%);
+}
+.bar {
+	background: $azul;
+	&.bar-header-secondary {
+		background: darken($azul, 20%);
+	}
+	&.ios7 {
+		padding-top: 20px;
+	}
+	.title {
+		color: #FFF;
+	}
+	.icon {
+		color: #FFF;
+	}
+	div.segmented-control {
+		border-color: $azul;
+	}
+	a.control-item {
+		color: #FFF;
+		border-color: $azul;
+	}
+	a.control-item.active {
+		background: #000;
+	}
+}
+#precios_header {
+	padding: 0;
+	.segmented-control {
+		height: 44px;
+		top: 0;
+		border: 0;
+		a {
+			padding: 0;
+			line-height: 44px;
+			border: 0;
+		}
+	}
+}
+#page_banner {
+	img {
+		max-width: 100%;
+	}
+}
+#home {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-size: 101% auto;
+}
+#aldorf_logo {
+	padding-top: 22%;
+	text-align:center;
+	img {
+		max-width: 75%;
+	}
+}
+#suzuki_logo {
+	position: absolute;
+	top: 40px;
+	left: 20px;
+	img {
+		max-width: 25%;
+	}
+}
+#carro_swift {
+	width: 80%;
+	display: block;
+	margin: -20px auto;
+}
+#home_menu {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	font-size: .8em;
+	div.menu {
+		position: absolute;
+		width: 100%;
+		bottom: 15%;
+	}
+	a {
+		display: block;
+		width: 100%;
+		background-size: cover;
+		padding: 20px 0;
+		text-align:left;
+		font-size: 1.3em;
+		color: #FFF;
+		text-indent: 40px;
+		border-top: solid 1px $beige;
+		&:after,&:before {
+			display: block;
+			position: absolute;
+			content: '';
+			height: 15px;
+			margin: -5px;
+			background: #FFF;
+			width: 2px;
+			right: 40px;
+			transform: rotate(45deg);
+		}
+		&:before {
+			margin-top: 1px;
+			transform: rotate(-45deg);
+		}
+		&:after {
+			margin-top: -10px;
+		}
+		&:hover, &:active {
+			background: $azul !important;
+		}
+		img {
+			display: inline-block;
+			vertical-align: middle;
+			height: 1.5em;
+			margin: 0 30px 0 10px;
+		}
+	}
+}
+.text-center {
+	text-align:center;
+}
+.table {
+	width: 100%;
+	&.table-striped td {
+		border-bottom: 1px solid #CCC;
+		padding: 10px;
+	}
+}
+.caja {
+	padding: 10px; color: #222; border-radius: 10px;
+}
+#garentiaextendida {
+	line-height: 50px; 
+	background: $azul; 
+	color: #FFF; 
+	display: block; 
+	text-align:center;
+	&:active {
+		color: #FFF;
+		background: $beige;
+	}
+}
+.contenido.rojo, .content.rojo {
+}
+.content.citas {
+	background-size: cover;
+	color: #777;
+	h2, h3, h4, h5 {
+		color: $azul !important;
+	}
+	.contenedor {
+		color: #777;
+		padding: 20px;
+		input, select {
+			color: #444;
+		}
+	}
+	.card {
+		margin: 0;
+		background: #FFF;
+		border-color: #FFF;
+		color: #666 !important;
+	}
+	.btn {
+		background: $azul;
+		border-color: darken($azul,5%);
+		color: #FFF;
+	}
+	.btn.naranja {
+		background: $azul;
+		border-color: darken($azul, 5%);
+	}
+}
+.confirmacion_cita {
+	text-align: center;
+	color: #444;
+	img {
+		max-width: 60%;
+	}
+	h4 {
+		color: $beige;
+	}
+}
