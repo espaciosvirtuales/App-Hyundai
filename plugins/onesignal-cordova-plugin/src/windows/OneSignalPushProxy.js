@@ -2,7 +2,6 @@
 var OneSingal_launchString = "";
 var OneSignal_JSBridge = new OneSignalSDK_WP_WNS_WRTC.WinJSBridge();
 var OneSignal_app_id = null;
-var OneSignal_opened_callback = null;
 
 
 // Process launch args from cold start
@@ -25,7 +24,8 @@ var cordova = require('cordova'),
     
 module.exports = {
   init: function(successCallback, errorCallback, params) {
-    OneSignal_app_id = params[0];
+    var options = params[0];
+    OneSignal_app_id = options.appId;
     
     OneSignal_JSBridge.addEventListener("notificationopened", function (e) {
         var additionalData = e.additionalData;
@@ -34,10 +34,10 @@ module.exports = {
             additionalData = JSON.parse(e.additionalData);
 
         var newData = { message: e.message, additionalData: additionalData, isActive: e.isActive };
-        OneSignal_opened_callback(newData, { keepCallback: true });
+        successCallback(newData, { keepCallback: true });
     });
     
-    OneSignal_JSBridge.init(OneSignal_app_id, OneSingal_launchString);
+    OneSignal_JSBridge.init(options.appId, OneSingal_launchString);
   },
 
   sendTags: function (successCallback, errorCallback, params) {
@@ -63,12 +63,7 @@ module.exports = {
       OneSignal_JSBridge.deletetags(JSON.stringify(params));
   },
 
-  setNotificationOpenedHandler:function (successCallback, errorCallback, params) {
-      OneSignal_opened_callback = successCallback;
-  },
-
   // Native SDK does not support these functions.
-  setNotificationReceivedHandler: function (successCallback, errorCallback, params) { },
   registerForPushNotifications: function (successCallback, errorCallback, params) { },
   enableVibrate: function (successCallback, errorCallback, params) { },
   enableSound: function (successCallback, errorCallback, params) { },
@@ -77,9 +72,8 @@ module.exports = {
   setSubscription: function (successCallback, errorCallback, params) { },
   postNotification: function (successCallback, errorCallback, params) { },
   promptLocation: function (successCallback, errorCallback, params) { },
-  syncHashedEmail: function (successCallback, errorCallback, params) { },
+  setEmail: function (successCallback, errorCallback, params) { },
   setLogLevel: function (successCallback, errorCallback, params) { }
-
 };
 
 require("cordova/exec/proxy").add("OneSignalPush", module.exports);

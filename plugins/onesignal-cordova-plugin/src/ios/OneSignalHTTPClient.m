@@ -1,7 +1,7 @@
 /**
  * Modified MIT License
  *
- * Copyright 2016 OneSignal
+ * Copyright 2015 OneSignal
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,10 +25,7 @@
  * THE SOFTWARE.
  */
 
-#import <Foundation/Foundation.h>
 #import "OneSignalHTTPClient.h"
-
-#define DEFAULT_PUSH_HOST @"https://onesignal.com/api/v1/"
 
 @interface OneSignalHTTPClient()
 @property (readwrite, nonatomic) NSURL *baseURL;
@@ -38,16 +35,15 @@
 
 @synthesize baseURL = _baseURL;
 
-- (id)init {
+- (id)initWithBaseURL:(NSURL *)url {
     self = [super init];
-    if (self)
-        self.baseURL = [NSURL URLWithString:DEFAULT_PUSH_HOST];
+    self.baseURL = url;
+    
     return self;
 }
 
 - (NSMutableURLRequest*) requestWithMethod:(NSString*)method
                                        path:(NSString*)path {
-    
     NSURL* url = [NSURL URLWithString:path relativeToURL:self.baseURL];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:method];

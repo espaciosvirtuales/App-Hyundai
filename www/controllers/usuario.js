@@ -6,12 +6,31 @@ function service_usuarios(app) {
 		// determinar las cabeceras de la app
 		// la sesión se envía en la cabecera
 		var headers = {
-			'Aldorf-API-Key': 'e6d214d3-6393-5794-becc-2cad82e4cc9b',
+			'Aldorf-API-Key': window.localStorage.getItem('token'),
 			'Aldorf-Session-Key': window.localStorage.getItem('session_hash'),
-			'Aldorf-App': 'suzuki'
+			'Aldorf-App': 'hyundai'
 		};
 		
 		this.headers = headers;
+		
+		
+		this.registrar_push = registrar_push;
+		
+		function registrar_push() {
+			postdata = {
+				push_id: window.localStorage.getItem('push_id')
+			}
+			$http({
+				method: 'PUT',
+				url: 'http://api.grupoaldorf.com.mx/usuario/push',
+				headers: headers,
+				data: postdata
+			}).then(function successCallback(response) {
+				console.log('se registró el PUSH ID');
+			}, function errorCallback(response) {
+				console.log(response.statusText);
+			});
+		};
 
 		/**
 		 * Ingresar usuario		
@@ -28,6 +47,8 @@ function service_usuarios(app) {
 				}
 			}).then(function successCallback(response) {
 				window.localStorage.setItem('session_hash', response.data.sesion);
+				window.localStorage.setItem('token', response.data.token);
+				registrar_push();
 				$location.path('/dashboard');
 			}, function errorCallback(response) {
 				if(typeof response.data != 'string')
@@ -43,6 +64,9 @@ function service_usuarios(app) {
 
 		this.checar_sesion = function(autorizado) {
 			headers['Aldorf-Session-Key'] = window.localStorage.getItem('session_hash');
+			headers['Aldorf-API-Key'] = window.localStorage.getItem('token');
+			var push = window.localStorage.getItem('push_id');
+			console.log(push);
 			$http({
 				method: 'GET',
 				url: 'http://api.grupoaldorf.com.mx/usuario',
@@ -57,6 +81,7 @@ function service_usuarios(app) {
 				}
 				
 			}, function errorCallback(response) {
+				header = {};
 				$location.path('/login');
 			});
 		};
@@ -122,21 +147,6 @@ function service_usuarios(app) {
 			
 		};
 
-		this.registrar_push = function() {
-			postdata = {
-				push_id: window.localStorage.getItem('push_id')
-			}
-			$http({
-				method: 'PUT',
-				url: 'http://api.grupoaldorf.com.mx/usuario/push',
-				headers: headers,
-				data: postdata
-			}).then(function successCallback(response) {
-				console.log('se registró el PUSH ID');
-			}, function errorCallback(response) {
-				console.log(response.statusText);
-			});
-		};
 
 		this.restablecer_contrasena = function(param) {
 			data = {

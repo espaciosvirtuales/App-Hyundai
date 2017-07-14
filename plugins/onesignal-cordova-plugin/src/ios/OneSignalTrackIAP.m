@@ -1,7 +1,7 @@
 /**
  * Modified MIT License
  *
- * Copyright 2016 OneSignal
+ * Copyright 2015 OneSignal
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -62,15 +62,15 @@ NSMutableDictionary* skusToTrack;
     id skPayment;
     
     for (id transaction in transactions) {
-        NSInteger state = (NSInteger)[transaction performSelector:@selector(transactionState)];
+        NSInteger state = [transaction performSelector:@selector(transactionState)];
         switch (state) {
             case 1: // SKPaymentTransactionStatePurchased
                 skPayment = [transaction performSelector:@selector(payment)];
                 NSString* sku = [skPayment performSelector:@selector(productIdentifier)];
-                NSInteger quantity = (NSInteger)[skPayment performSelector:@selector(quantity)];
+                NSInteger quantity = [skPayment performSelector:@selector(quantity)];
                 
                 if (skusToTrack[sku])
-                    [skusToTrack[sku] setObject:[NSNumber numberWithInt:[skusToTrack[sku][@"count"] intValue] + (int)quantity] forKey:@"count"];
+                    [skusToTrack[sku] setObject:[NSNumber numberWithInt:[skusToTrack[sku][@"count"] intValue] + quantity] forKey:@"count"];
                 else
                     skusToTrack[sku] = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:quantity], @"count", nil];
                 break;
@@ -84,12 +84,10 @@ NSMutableDictionary* skusToTrack;
 
 - (void)getProductInfo:(NSArray*)productIdentifiers {
     Class SKProductsRequestClass = NSClassFromString(@"SKProductsRequest");
-    id productsRequest = [[SKProductsRequestClass alloc] performSelector:@selector(initWithProductIdentifiers:) withObject:[NSSet setWithArray:productIdentifiers]];
-    [productsRequest setDelegate:(id)self];
-    
-    //[productsRequest performSelector:NSSelectorFromString(@"start")];
-    SEL selector = NSSelectorFromString(@"start");
-    ((void (*)(id, SEL))[productsRequest methodForSelector:selector])(productsRequest, selector);
+    id productsRequest = [[SKProductsRequestClass alloc]
+                            performSelector:@selector(initWithProductIdentifiers:) withObject:[NSSet setWithArray:productIdentifiers]];
+    [productsRequest setDelegate:self];
+    [productsRequest performSelector:NSSelectorFromString(@"start")];
 }
 
 - (void)productsRequest:(id)request didReceiveResponse:(id)response {
@@ -109,7 +107,7 @@ NSMutableDictionary* skusToTrack;
     }
     
     if ([arrayOfPruchases count] > 0)
-        [[OneSignal class] performSelector:@selector(sendPurchases:) withObject:arrayOfPruchases];
+        [[OneSignal defaultClient] performSelector:@selector(sendPurchases:) withObject:arrayOfPruchases];
 }
 
 #pragma clang diagnostic pop

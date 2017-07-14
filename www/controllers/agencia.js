@@ -2,9 +2,9 @@ function service_agencia(app) {
 app.service('agenciaMazda',function($http) {
 	
 	var headers = {
-			'Aldorf-API-Key': 'e6d214d3-6393-5794-becc-2cad82e4cc9b',
+			'Aldorf-API-Key': window.localStorage.getItem('token'),
 			'Aldorf-Session-Key': window.localStorage.getItem('session_hash'),
-			'Aldorf-App': 'suzuki'
+			'Aldorf-App': 'hyundai'
 		};
 	
 	this.cargar_fechas = function(agencia, callback) {
