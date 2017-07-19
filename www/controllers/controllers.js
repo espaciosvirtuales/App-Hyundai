@@ -79,9 +79,23 @@ function init_controllers(app) {
 
 	app.controller('CitasCtrl', function ($scope, $location, usuarioMazda, agenciaMazda, $http, $sce) {
 
+		$scope.agencias = [];
+	 	$http({
+	 			method: 'GET',
+	 			url: 'http://api-beta.grupoaldorf.com.mx/agencias/',
+	 			headers: agenciaMazda.headers
+	 		}).then(function successCallback(response) {
+				console.log(response);
+				$scope.agencias = response.data;
+				console.log("regreso del http");
+				console.log($scope.agencias);
+	 		}, function errorCallback(response) {
+	 			//callback(false);
+	 		});
+
 		usuarioMazda.checar_sesion(function (usuario) {
 			$scope.usuario = usuario;
-			$scope.agencias = [
+			/*$scope.agencias = [
 				{
 					codigo: 'MO',
 					nombre: 'Hyundai Cumbres'
@@ -90,7 +104,7 @@ function init_controllers(app) {
 					codigo: 'MT',
 					nombre: 'Hyundai Tampico'
 				}
-			];
+			];*/
 			$scope.form = {
 				agencia: null,
 				carro: null,
@@ -118,7 +132,8 @@ function init_controllers(app) {
 
 				$http({
 					method: 'POST',
-					url: 'http://api.grupoaldorf.com.mx/agencia/' + data.agencia + '/cita',
+					//url: 'http://api.grupoaldorf.com.mx/agencia/' + data.agencia + '/cita',
+					url: 'http://api-beta.grupoaldorf.com.mx/agencia/' + data.agencia + '/cita',
 					headers: usuarioMazda.headers,
 					data: data
 				}).then(function successCallback(response) {

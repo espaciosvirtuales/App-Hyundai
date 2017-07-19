@@ -4,6 +4,7 @@
     "displayName": "Hyundai Aldorf",
     "cordova": {
         "platforms": [
+            "android",
             "ios"
         ],
         "plugins": {
@@ -11,6 +12,7 @@
         }
     },
     "dependencies": {
+        "cordova-android": "^6.2.3",
         "cordova-ios": "~4.4.0",
         "cordova-plugin-whitelist": "1"
     }
