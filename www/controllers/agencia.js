@@ -14,8 +14,8 @@ app.service('agenciaMazda',function($http) {
 		}
 		$http({
 			method: 'GET',
-			//url: 'http://api.grupoaldorf.com.mx/agencia/'+agencia+'/agenda',
-			url: 'http://api-beta.grupoaldorf.com.mx/agencia/'+agencia+'/agenda',
+			url: 'http://api.grupoaldorf.com.mx/agencia/'+agencia+'/agenda',
+		  //url: 'http://api-beta.grupoaldorf.com.mx/agencia/'+agencia+'/agenda',
 			headers: headers
 		}).then(function successCallback(response) {
 			//console.log(response.data.fechas);
@@ -36,8 +36,8 @@ app.service('agenciaMazda',function($http) {
 		}
 		$http({
 			method: 'GET',
-			//url: 'http://api.grupoaldorf.com.mx/agencia/'+param.agencia+'/horas?fecha='+param.fecha+'&tiposervicio='+param.tiposervicio,
-			url: 'http://api-beta.grupoaldorf.com.mx/agencia/'+param.agencia+'/horas?fecha='+param.fecha+'&tiposervicio='+param.tiposervicio,
+			url: 'http://api.grupoaldorf.com.mx/agencia/'+param.agencia+'/horas?fecha='+param.fecha+'&tiposervicio='+param.tiposervicio,
+			//url: 'http://api-beta.grupoaldorf.com.mx/agencia/'+param.agencia+'/horas?fecha='+param.fecha+'&tiposervicio='+param.tiposervicio,
 			headers: headers,
 			data: data
 		}).then(function successCallback(response) {

@@ -22,8 +22,8 @@ function service_usuarios(app) {
 			}
 			$http({
 				method: 'PUT',
-				//url: 'http://api.grupoaldorf.com.mx/usuario/push',
-				url: 'http://api-beta.grupoaldorf.com.mx/usuario/push',
+				url: 'http://api.grupoaldorf.com.mx/usuario/push',
+				//url: 'http://api-beta.grupoaldorf.com.mx/usuario/push',
 				headers: headers,
 				data: postdata
 			}).then(function successCallback(response) {
@@ -40,8 +40,8 @@ function service_usuarios(app) {
 		this.ingresar = function (correo, contrasena) {
 			$http({
 				method: 'POST',
-				//url: 'http://api.grupoaldorf.com.mx/login',
-				url: 'http://api-beta.grupoaldorf.com.mx/login',
+				url: 'http://api.grupoaldorf.com.mx/login',
+				//url: 'http://api-beta.grupoaldorf.com.mx/login',
 				headers: headers,
 				data: {
 					email: correo,
@@ -71,8 +71,8 @@ function service_usuarios(app) {
 			console.log(push);
 			$http({
 				method: 'GET',
-				//url: 'http://api.grupoaldorf.com.mx/usuario',
-				url: 'http://api-beta.grupoaldorf.com.mx/usuario',
+				url: 'http://api.grupoaldorf.com.mx/usuario',
+				//url: 'http://api-beta.grupoaldorf.com.mx/usuario',
 				headers: headers
 			}).then(function successCallback(response) {
 
@@ -95,8 +95,8 @@ function service_usuarios(app) {
 		this.hacer_cita = function(cita,agencia,callback) {
 			$http({
 				method: 'POST',
-				//url: 'http://api.grupoaldorf.com.mx/agencia/'+agencia+'/cita',
-				url: 'http://api-beta.grupoaldorf.com.mx/agencia/'+agencia+'/cita',
+				url: 'http://api.grupoaldorf.com.mx/agencia/'+agencia+'/cita',
+				//url: 'http://api-beta.grupoaldorf.com.mx/agencia/'+agencia+'/cita',
 				headers: headers,
 				data: cita
 			}).then(function successCallback(response) {
@@ -111,8 +111,8 @@ function service_usuarios(app) {
 		this.cargar_autos = function(callback) {
 			$http({
 				method: 'GET',
-				//url: 'http://api.grupoaldorf.com.mx/usuario/vehiculos',
-				url: 'http://api-beta.grupoaldorf.com.mx/usuario/vehiculos',
+				url: 'http://api.grupoaldorf.com.mx/usuario/vehiculos',
+				//url: 'http://api-beta.grupoaldorf.com.mx/usuario/vehiculos',
 				headers: headers
 			}).then(function successCallback(response) {
 				var autos = response.data;
@@ -138,8 +138,8 @@ function service_usuarios(app) {
 
 			$http({
 				method: 'POST',
-				//url: 'http://api.grupoaldorf.com.mx/registrar',
-				url: 'http://api-beta.grupoaldorf.com.mx/registrar',
+				url: 'http://api.grupoaldorf.com.mx/registrar',
+				//url: 'http://api-beta.grupoaldorf.com.mx/registrar',
 				headers: headers,
 				data: postdata
 			}).then(function successCallback(response) {
@@ -163,8 +163,8 @@ function service_usuarios(app) {
 			}
 			$http({
 				method: 'POST',
-				//url: 'http://api.grupoaldorf.com.mx/restablecer',
-				url: 'http://api-beta.grupoaldorf.com.mx/restablecer',
+				url: 'http://api.grupoaldorf.com.mx/restablecer',
+				//url: 'http://api-beta.grupoaldorf.com.mx/restablecer',
 				headers: headers,
 				data: data
 			}).then(function successCallback(response) {
@@ -185,8 +185,8 @@ function service_usuarios(app) {
 			}
 			$http({
 				method: 'POST',
-				//url: 'http://api.grupoaldorf.com.mx/recuperar',
-				url: 'http://api-beta.grupoaldorf.com.mx/recuperar',
+				url: 'http://api.grupoaldorf.com.mx/recuperar',
+				//url: 'http://api-beta.grupoaldorf.com.mx/recuperar',
 				headers: headers,
 				data: data
 			}).then(function successCallback(response) {
@@ -210,8 +210,8 @@ function service_usuarios(app) {
 			}
 			$http({
 				method: 'POST',
-				//url: 'http://api.grupoaldorf.com.mx/usuario/vehiculo',
-				url: 'http://api-beta.grupoaldorf.com.mx/usuario/vehiculo',
+				url: 'http://api.grupoaldorf.com.mx/usuario/vehiculo',
+				//url: 'http://api-beta.grupoaldorf.com.mx/usuario/vehiculo',
 				headers: headers,
 				data: data
 			}).then(function successCallback(response) {
@@ -228,8 +228,8 @@ function service_usuarios(app) {
 			var session_hash = window.localStorage.getItem('session_hash');
 			$http({
 				method: 'DELETE',
-				//url: 'http://api.grupoaldorf.com.mx/usuario/vehiculo/'+data.vehiculo,
-				url: 'http://api-beta.grupoaldorf.com.mx/usuario/vehiculo/'+data.vehiculo,
+				url: 'http://api.grupoaldorf.com.mx/usuario/vehiculo/'+data.vehiculo,
+				//url: 'http://api-beta.grupoaldorf.com.mx/usuario/vehiculo/'+data.vehiculo,
 				headers: headers
 			}).then(function successCallback(response) {
 				callback(true);

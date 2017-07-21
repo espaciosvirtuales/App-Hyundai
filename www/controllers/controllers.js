@@ -82,15 +82,15 @@ function init_controllers(app) {
 		$scope.agencias = [];
 	 	$http({
 	 			method: 'GET',
-	 			url: 'http://api-beta.grupoaldorf.com.mx/agencias/',
-	 			headers: agenciaMazda.headers
+	 			url: 'http://api.grupoaldorf.com.mx/agencias',
+	 			headers: usuarioMazda.headers
 	 		}).then(function successCallback(response) {
 				console.log(response);
 				$scope.agencias = response.data;
 				console.log("regreso del http");
 				console.log($scope.agencias);
 	 		}, function errorCallback(response) {
-	 			//callback(false);
+	 			console.log(response);
 	 		});
 
 		usuarioMazda.checar_sesion(function (usuario) {
@@ -132,8 +132,8 @@ function init_controllers(app) {
 
 				$http({
 					method: 'POST',
-					//url: 'http://api.grupoaldorf.com.mx/agencia/' + data.agencia + '/cita',
-					url: 'http://api-beta.grupoaldorf.com.mx/agencia/' + data.agencia + '/cita',
+					url: 'http://api.grupoaldorf.com.mx/agencia/' + data.agencia + '/cita',
+					//url: 'http://api-beta.grupoaldorf.com.mx/agencia/' + data.agencia + '/cita',
 					headers: usuarioMazda.headers,
 					data: data
 				}).then(function successCallback(response) {
