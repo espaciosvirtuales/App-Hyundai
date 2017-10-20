@@ -8,13 +8,20 @@
     <!-- <meta name="viewport" content="width=device-width"> -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">    
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="css/ratchet.min.css">
 	<link rel="stylesheet" href="css/ratchet-theme-ios.min.css">
 	<link rel="stylesheet" href="css/App.css">
     <!-- endbuild -->
+
+    <!-- Analytics -->
+    <script type="text/javascript" src="js/GALocalStorage.js"></script>
+    <script>
+        ga_storage._setAccount('UA-69379021-15'); //Replace with your own
+        ga_storage._trackPageview('Página Principal');
+    </script>
   </head>
   <body ng-app="AldorfApp">
     <!-- Add your site or application content here -->
@@ -27,7 +34,7 @@
 	<script src="components/angular-sanitize.js"></script>
 	<script src="components/angular-animate.js"></script>
 	<script src="components/jquery.min.js"></script>
-		<!-- 
+		<!--
     <script src="components/bootstrap.js"></script>
      -->
     <script src="components/fastclick.min.js"></script>

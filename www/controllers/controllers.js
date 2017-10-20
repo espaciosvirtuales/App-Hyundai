@@ -41,11 +41,12 @@ function init_controllers(app) {
 					$scope.garantia_extendida[i].contenido = $sce.trustAsHtml(v.contenido);
 				});
 			});
-
+		ga_storage._trackPageview('Precios');
 	});
 
 	app.controller('DashboardCtrl', function ($scope, $location, usuarioMazda) {
 
+		ga_storage._trackPageview('Escritorio');
 		usuarioMazda.checar_sesion(function autorizado(usuario) {
 			$scope.usuario = usuario;
 			usuarioMazda.cargar_autos(function (autos) {
@@ -79,6 +80,7 @@ function init_controllers(app) {
 
 	app.controller('CitasCtrl', function ($scope, $location, usuarioMazda, agenciaMazda, $http, $sce) {
 
+		ga_storage._trackPageview('Hacer Cita');
 		$scope.agencias = [];
 	 	$http({
 	 			method: 'GET',
@@ -229,6 +231,7 @@ function init_controllers(app) {
 
 	app.controller('RegistroCtrl', function ($scope, $location, usuarioMazda) {
 
+		ga_storage._trackPageview('Registro');
 		$scope.usuario = {};
 		$scope.usuario.nombre = null;
 		$scope.usuario.compania = null;
@@ -286,6 +289,7 @@ function init_controllers(app) {
 
 	app.controller('CollisionCenterCtrl', function ($scope, $location, usuarioMazda, $sce) {
 
+		ga_storage._trackPageview('Collision Center');
 		usuarioMazda.checar_sesion(function (usuario) {
 			$scope.usuario = usuario;
 			$scope.param = {};

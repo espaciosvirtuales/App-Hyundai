@@ -102,6 +102,7 @@ function service_usuarios(app) {
 			}).then(function successCallback(response) {
 				showAlert('Su cita se ha agendado con éxito. Checa tu correo para tu confirmación.', 'Cita agendada');
 				$location.path('/dashboard');
+				ga_storage._trackPageview('Cita Exitosa');
 			}, function errorCallback(response) {
 				callback(false);
 			});

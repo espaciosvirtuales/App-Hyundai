@@ -1,19 +1,19 @@
 {
-    "name": "mx.com.grupoaldorf.hyundai.app",
-    "version": "1.0.0",
-    "displayName": "Hyundai Aldorf",
-    "cordova": {
-        "platforms": [
-            "android",
-            "ios"
-        ],
-        "plugins": {
-            "cordova-plugin-whitelist": {}
-        }
-    },
-    "dependencies": {
-        "cordova-android": "^6.2.3",
-        "cordova-ios": "~4.4.0",
-        "cordova-plugin-whitelist": "1"
+  "name": "mx.com.grupoaldorf.hyundai.app",
+  "version": "1.0.0",
+  "displayName": "Hyundai Aldorf",
+  "cordova": {
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {}
     }
+  },
+  "dependencies": {
+    "cordova-android": "^6.2.3",
+    "cordova-ios": "~4.4.0",
+    "cordova-plugin-whitelist": "1"
+  }
 }
