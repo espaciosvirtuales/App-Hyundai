@@ -1,43 +1,43 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
     },
-    "config_munge": {
-        "files": {}
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
     },
-    "installed_plugins": {
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        },
-        "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        },
-        "phonegap-plugin-contentsync": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        }
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
-        }
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
+    },
+    "phonegap-plugin-contentsync": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
     }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "mx.com.grupoaldorf.hyundai.app"
+    }
+  }
 }
