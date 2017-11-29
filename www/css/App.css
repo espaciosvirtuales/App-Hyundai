@@ -222,8 +222,8 @@ body a, .content a, body > .container a {
 }
 /* line 156, ../sass/App.scss */
 #precios_header .segmented-control a {
-  padding: 0;
-  line-height: 44px;
+  padding: 10px 0 0 0;
+  //line-height: 44px;
   border: 0;
 }
 

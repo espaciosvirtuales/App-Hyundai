@@ -1,0 +1,39 @@
+<style>
+  p {
+    color: #000;
+    font-weight: bold;
+  }
+  .contenido2 {
+    padding-top: 50px;
+  }
+  img {
+    width: 100%;
+  }
+  .bordes {
+    margin: 0 15px;
+  }
+</style>
+<header class="bar bar-nav">
+  <a href="#/tumazda" class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">Pasos para cambios de llantas</h1>
+</header>
+<div class="contenido2">
+  <div class="bordes">
+    <p>Antes de proceder al cambio de neumático(s), asegúrate de tener las siguientes herramientas a la mano:</p>
+    <img src="../../img/tumazda/Pasos-para-cambio-de-llantas.png" alt="Herramientas de cambio de llanta">
+    <p>Una vez listo lo anterior procede con los siguientes pasos en el orden mencionado:</p>
+  </div>
+
+  <ul class="table-view" style="margin-top: 0; padding-top: 0;">
+    <li class="table-view-cell media" ng-repeat="item in llantas">
+  	  <a ng-click="item.abierto = !item.abierto" class="navigate-right" ng-class="{active:item.abierto}">
+        <div class="media-body">
+    		  <strong>{{item.titulo}}</strong>
+    		  <div class="detalles" ng-show="item.abierto">
+      		  <br><div ng-bind-html="item.texto"></div><br>
+    	  	</div>
+  	  </div>
+  	  </a>
+    </li>
+  </ul>
+</div

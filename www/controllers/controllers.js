@@ -41,7 +41,36 @@ function init_controllers(app) {
 					$scope.garantia_extendida[i].contenido = $sce.trustAsHtml(v.contenido);
 				});
 			});
-		ga_storage._trackPageview('Precios');
+		ga_storage._trackPageview('Tu hyundai');
+	});
+
+	app.controller('CambioLlantasCtrl', function ($scope, $http, $sce) {
+
+		$http.get('json_files/llantas.json')
+			.then(function (response) {
+				$scope.llantas = [];
+				$.each(response.data, function (i, v) {
+					$scope.llantas[i] = v;
+					$scope.llantas[i].contenido = $sce.trustAsHtml(v.contenido);
+				});
+			});
+	});
+
+	app.controller('TuMazdaCtrl', function(){
+		console.log("Ya estoy en tu mazda");
+		$('#menuTerco').addClass('active');
+	});
+
+	app.controller('MazdaTipsCtrl', function ($scope, $http, $sce) {
+
+		$http.get('json_files/tips.json')
+			.then(function (response) {
+				$scope.tips = [];
+				$.each(response.data, function (i, v) {
+					$scope.tips[i] = v;
+					$scope.tips[i].contenido = $sce.trustAsHtml(v.contenido);
+				});
+			});
 	});
 
 	app.controller('DashboardCtrl', function ($scope, $location, usuarioMazda) {
@@ -80,7 +109,6 @@ function init_controllers(app) {
 
 	app.controller('CitasCtrl', function ($scope, $location, usuarioMazda, agenciaMazda, $http, $sce) {
 
-		ga_storage._trackPageview('Hacer Cita');
 		$scope.agencias = [];
 	 	$http({
 	 			method: 'GET',
@@ -91,6 +119,7 @@ function init_controllers(app) {
 				$scope.agencias = response.data;
 				console.log("regreso del http");
 				console.log($scope.agencias);
+				ga_storage._trackPageview('Citas');
 	 		}, function errorCallback(response) {
 	 			console.log(response);
 	 		});
@@ -126,12 +155,13 @@ function init_controllers(app) {
 
 			$scope.agendar = function () {
 
+				ga_storage._trackPageview('Citas Confirmadas');
 				console.log('Hacer Cita');
 				data = $scope.form;
 				data.vehiculo = $scope.autos[$scope.form.carro];
 				data.agencia = $scope.form.agencia;
 				$scope.cargando = true;
-
+        console.log(data.vehiculo);
 				$http({
 					method: 'POST',
 					url: 'http://api.grupoaldorf.com.mx/agencia/' + data.agencia + '/cita',
@@ -285,7 +315,6 @@ function init_controllers(app) {
 			}
 		}
 	});
-
 
 	app.controller('CollisionCenterCtrl', function ($scope, $location, usuarioMazda, $sce) {
 

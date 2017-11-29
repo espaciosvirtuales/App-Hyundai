@@ -35,7 +35,7 @@ document.addEventListener('deviceready', function () {
 	   .startInit("4d67f342-1f8a-49e8-b466-0097dfaf12a1", "15796307218")
 	   .handleNotificationOpened(notificationOpenedCallback)
 	   .endInit(); */
-	
+
 	window.plugins.OneSignal.init("4d67f342-1f8a-49e8-b466-0097dfaf12a1", {
 			googleProjectNumber: "15796307218"
 		},
@@ -97,7 +97,7 @@ function init() {
 		FastClick.attach(document.body);
 	});
 
-	var app = angular.module('AldorfApp', ['ngRoute', 'ngAnimate']);
+	var app = angular.module('AldorfApp', ['ngRoute', 'ngAnimate', 'ngSanitize']);
 
 	app.config(function ($routeProvider, $httpProvider) {
 
@@ -171,6 +171,30 @@ function init() {
 				templateUrl: 'partials/garantia_extendida.html',
 				controller: 'CreateCtrl'
 			})
+			.when('/tumazda', {
+	      templateUrl: 'partials/tumazda/tumazda.html',
+	      controller: 'TuMazdaCtrl'
+	    })
+	    .when('/cambiollantas', {
+	      templateUrl: 'partials/tumazda/cambiollantas.html',
+	      controller: 'CambioLlantasCtrl'
+	    })
+	    .when('/cargabateria', {
+	      templateUrl: 'partials/tumazda/cargabateria.html',
+	      controller: ''
+	    })
+	    .when('/calibracionllantas', {
+	      templateUrl: 'partials/tumazda/calibracionllantas.html',
+	      controller: ''
+	    })
+	    .when('/simbolos', {
+	      templateUrl: 'partials/tumazda/simbolos.html',
+	      controller: ''
+	    })
+	    .when('/mazdatips', {
+	      templateUrl: 'partials/tumazda/mazdatips.html',
+	      controller: 'MazdaTipsCtrl'
+	    })
 			.otherwise({
 				redirectTo: '/'
 			});

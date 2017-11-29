@@ -1,0 +1,39 @@
+<style>
+  p {
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .contenido2 {
+    padding-top: 60px;
+  }
+  img {
+    width: 100%;
+  }
+  .bordes {
+    margin: 0 20px;
+  }
+</style>
+<header class="bar bar-nav">
+  <a href="#/tumazda" class="icon icon-left-nav pull-left"></a>
+  <h1 class="title">#MazdaTips</h1>
+</header>
+<div class="contenido2">
+<div class="bordes">
+  <p>Los mejores y más prácticos consejos para viajar cómodo y seguro (toca la imagen para ampliar).</p>
+</div>
+  <ul class="table-view" style="margin-top: 0; padding-top: 0;">
+    <li class="table-view-cell media" ng-repeat="item in tips">
+  	  <a ng-click="item.abierto = !item.abierto" class="navigate-right" ng-class="{active:item.abierto}">
+        <div class="media-body">
+    		  <strong>{{item.titulo}}</strong>
+    		  <div class="detalles" ng-show="item.abierto">
+      		  <b class="thumbnail fancybox" href="{{item.img}}">             
+              <img src="{{item.img}}" alt="Tip">
+            </b>
+    	  	</div>
+  	  </div>
+  	  </a>
+    </li>
+  </ul>
+</div
