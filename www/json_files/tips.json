@@ -1,11 +1,11 @@
 [
   {
-    "titulo": "Revisión Sistema de Frenos", "img": "../../img/tumazda/mazdatip-01.jpg", "abierto": false
+    "titulo": "Revisión Sistema de Frenos", "img": ".img/tumazda/mazdatip-01.jpg", "abierto": false
   },
   {
-    "titulo": "Zapatos para Conducir", "img": "../../img/tumazda/mazdatip-02.jpg", "abierto": false
+    "titulo": "Zapatos para Conducir", "img": "img/tumazda/mazdatip-02.jpg", "abierto": false
   },
   {
-    "titulo": "¡Evita los Niveles Bajos!", "img": "../../img/tumazda/mazdatip-03.jpg", "abierto": false
+    "titulo": "¡Evita los Niveles Bajos!", "img": "img/tumazda/mazdatip-03.jpg", "abierto": false
   }
 ]

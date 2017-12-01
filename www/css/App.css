@@ -412,3 +412,11 @@ body a, .content a, body > .container a {
 .confirmacion_cita h4 {
   color: #E4DBD2;
 }
+
+.contenido2 {
+  padding-top: 50px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}

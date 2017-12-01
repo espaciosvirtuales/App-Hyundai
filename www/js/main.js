@@ -14,7 +14,8 @@ function main() {
   
    $(".fancybox").fancybox({
         openEffect: "none",
-        closeEffect: "none"
+        closeEffect: "none",
+        padding: '0'
     });
   
 
