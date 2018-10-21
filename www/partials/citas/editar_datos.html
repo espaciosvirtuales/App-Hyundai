@@ -1,0 +1,15 @@
+<header class="bar bar-nav">
+        <a href="#/dashboard" class="icon icon-left-nav pull-left"></a>
+        <h1 class="title">Editar Datos</h1>
+    </header>
+    <div class="content citas">
+        <div class="contenedor">
+                <h4>Edite su información</h4><br>
+                <input type="text" ng-model="usuario.nombre" class="form-control" placeholder="Nombre (requerido)">
+                <input type="text" ng-model="usuario.compania" class="form-control" placeholder="Compañía">
+                <input type="text" ng-model="usuario.email" class="form-control email" placeholder="Email (requerido)">
+                <input type="text" ng-model="usuario.telefono" class="form-control telefono" placeholder="Teléfono">
+                <input type="text" ng-model="usuario.celular" class="form-control telefono" placeholder="Celular (requerido)">
+                <p class="text-right"><button class="btn btn-block btn-warning" ng-click="edit()">Guardar</button></p>
+        </div>
+    </div>

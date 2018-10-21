@@ -72,6 +72,27 @@ function init_controllers(app) {
 				});
 			});
 	});
+	
+	app.controller('EditCtrl', function ($scope, $location, usuarioMazda) {
+		usuarioMazda.checar_sesion(function autorizado(usuario) {
+			$scope.usuario = usuario;
+		});
+
+		$scope.edit = function () {
+			datos = {
+				'nombre': $scope.usuario.nombre,
+				'compania': $scope.usuario.compania,
+				'email': $scope.usuario.email,
+				'telefono': $scope.usuario.telefono,
+				'celular': $scope.usuario.celular,
+				'id': $scope.usuario.id_usuario,
+			}
+			// console.log(datos)
+			usuarioMazda.editar_usuario(datos,function() {
+				$location.path('/dashboard');				
+			});
+		}
+	});
 
 	app.controller('DashboardCtrl', function ($scope, $location, usuarioMazda) {
 
