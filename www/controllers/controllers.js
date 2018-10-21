@@ -76,6 +76,12 @@ function init_controllers(app) {
 	app.controller('DashboardCtrl', function ($scope, $location, usuarioMazda) {
 
 		ga_storage._trackPageview('Escritorio');
+
+		$scope.logout = function () {
+			usuarioMazda.cerrar_sesion();
+			$location.path('/');
+		}
+
 		usuarioMazda.checar_sesion(function autorizado(usuario) {
 			$scope.usuario = usuario;
 			usuarioMazda.cargar_autos(function (autos) {
