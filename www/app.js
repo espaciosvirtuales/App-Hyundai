@@ -135,6 +135,10 @@ function init() {
 				templateUrl: 'partials/citas/dashboard.html',
 				controller: 'DashboardCtrl'
 			})
+			.when('/historial', {
+			  templateUrl: 'partials/citas/historial.html',
+			  controller: 'HistorialCtrl'
+			})
 			.when('/registro', {
 				templateUrl: 'partials/citas/registrar_usuario.html',
 				controller: 'RegistroCtrl'

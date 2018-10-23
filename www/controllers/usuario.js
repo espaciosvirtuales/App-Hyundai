@@ -108,6 +108,21 @@ function service_usuarios(app) {
 			});
 		}
 
+		this.historial = function(id, autorizado, callback) {
+			console.log(id)
+			$http({
+				method: 'GET',
+				url:'http://localhost:8000/usuario/historial?id=' + id,
+				headers: headers
+			}).then(function successCallback(response) {
+				// console.log(response);
+				var historial =  response.data;
+				autorizado(historial);
+
+			}, function errorCallback(response) {
+				console.log(response);
+			});
+		};
 
 		this.cargar_autos = function(callback) {
 			$http({

@@ -134,6 +134,18 @@ function init_controllers(app) {
 
 	});
 
+	app.controller('HistorialCtrl', function ($scope, $location, usuarioMazda) {
+		usuarioMazda.checar_sesion(function autorizado(usuario) {
+			usuarioMazda.historial(usuario.id_usuario, function autorizado(historial) {
+				$scope.historial = historial;
+				$.each(historial, function(i, v){
+					v.vehiculo = JSON.parse(v.vehiculo)
+				})
+				console.log(historial);
+			})
+		});
+	});
+
 	app.controller('CitasCtrl', function ($scope, $location, usuarioMazda, agenciaMazda, $http, $sce) {
 
 		$scope.agencias = [];
