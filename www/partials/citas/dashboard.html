@@ -13,11 +13,15 @@
 			<li class="table-view-cell" ng-repeat="auto in autos"><strong>{{auto.vehiculo}} | {{auto.modelo}} | {{auto.color}}</strong><br>No. Serie: {{auto.serie}} <button class="btn" ng-click="eliminar_auto(auto.id)"><span class="icon icon-trash"></span></button></li>
 		</ul>
 		<ul class="table-view dark">
-			<li class="table-view-divider"><span class="media-object pull-left icon icon-person"></span>Mi cuenta</li>
+			<li class="table-view-divider"><span class="media-object pull-left icon icon-person"></span>Mi cuenta
+				<a class="media-object icon icon-edit pull-right" href="#/editar_datos" style="margin-right: 10px; color: #FFF;"></a>
+			</li>
 			<li class="table-view-cell"><strong>Nombre:</strong> {{usuario.nombre}} {{usuario.apellido}}</li>
 			<li class="table-view-cell"><strong>Telefono:</strong> {{usuario.telefono}}</li>
 			<li class="table-view-cell"><strong>Celular:</strong> {{usuario.celular}}</li>
 			<li class="table-view-cell"><strong>Correo:</strong> {{usuario.email}}</li>
 			<li class="table-view-cell"><strong>Compañía:</strong> {{usuario.compania}}</li>
 		</ul>
+		<div class="contenedor"><a href="#/historial" class="btn btn-block">Historial de Citas</a></div>
+		<div class="contenedor"><a ng-click="logout()" class="btn btn-block">Cerrar Sesion</a></div>
 </div>

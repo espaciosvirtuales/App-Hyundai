@@ -135,9 +135,17 @@ function init() {
 				templateUrl: 'partials/citas/dashboard.html',
 				controller: 'DashboardCtrl'
 			})
+			.when('/historial', {
+			  templateUrl: 'partials/citas/historial.html',
+			  controller: 'HistorialCtrl'
+			})
 			.when('/registro', {
 				templateUrl: 'partials/citas/registrar_usuario.html',
 				controller: 'RegistroCtrl'
+			})
+			.when('/editar_datos', {
+			  templateUrl: 'partials/citas/editar_datos.html',
+			  controller: 'EditCtrl'
 			})
 			.when('/restablecer_contrasena', {
 				templateUrl: 'partials/citas/restablecer_contrasena.html',

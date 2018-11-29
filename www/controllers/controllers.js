@@ -72,10 +72,37 @@ function init_controllers(app) {
 				});
 			});
 	});
+	
+	app.controller('EditCtrl', function ($scope, $location, usuarioMazda) {
+		usuarioMazda.checar_sesion(function autorizado(usuario) {
+			$scope.usuario = usuario;
+		});
+
+		$scope.edit = function () {
+			datos = {
+				'nombre': $scope.usuario.nombre,
+				'compania': $scope.usuario.compania,
+				'email': $scope.usuario.email,
+				'telefono': $scope.usuario.telefono,
+				'celular': $scope.usuario.celular,
+				'id': $scope.usuario.id_usuario,
+			}
+			// console.log(datos)
+			usuarioMazda.editar_usuario(datos,function() {
+				$location.path('/dashboard');				
+			});
+		}
+	});
 
 	app.controller('DashboardCtrl', function ($scope, $location, usuarioMazda) {
 
 		ga_storage._trackPageview('Escritorio');
+
+		$scope.logout = function () {
+			usuarioMazda.cerrar_sesion();
+			$location.path('/');
+		}
+
 		usuarioMazda.checar_sesion(function autorizado(usuario) {
 			$scope.usuario = usuario;
 			usuarioMazda.cargar_autos(function (autos) {
@@ -105,6 +132,18 @@ function init_controllers(app) {
 			}
 		});
 
+	});
+
+	app.controller('HistorialCtrl', function ($scope, $location, usuarioMazda) {
+		usuarioMazda.checar_sesion(function autorizado(usuario) {
+			usuarioMazda.historial(usuario.id_usuario, function autorizado(historial) {
+				$scope.historial = historial;
+				$.each(historial, function(i, v){
+					v.vehiculo = JSON.parse(v.vehiculo)
+				})
+				console.log(historial);
+			})
+		});
 	});
 
 	app.controller('CitasCtrl', function ($scope, $location, usuarioMazda, agenciaMazda, $http, $sce) {

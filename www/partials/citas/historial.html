@@ -1,0 +1,38 @@
+<header class="bar bar-nav">
+        <a href="#/dashboard" class="icon icon-left-nav pull-left"></a>
+        <h1 class="title">Historial de Citas</h1>
+    </header>
+    <div class="content citas">
+        <div class="contenedor">
+            <h4>Citas de Servicio</h4><br>
+    
+            <ul class="table-view" style="margin-top: 0; padding-top: 0;">
+                <li class="table-view-cell media" ng-repeat="item in historial">
+                    <a ng-click="item.abierto = !item.abierto" class="navigate-right" ng-class="{active:item.abierto}">
+                        <div class="media-body">
+                            <strong>{{item.fecha}}</strong>
+                            <div class="detalles" ng-show="item.abierto">
+                                <br>
+                                <strong>Agencia:</strong><br>
+                                {{item.agencia}}<br><hr>
+                                <strong>Tipo: </strong><br>
+                                {{item.tipo}}<br><hr>
+                                <strong>Descripcion: </strong><br>
+                                {{item.descripcion}}<br><hr>
+                                <strong>Folio: </strong><br>
+                                {{item.folios}}<br><hr>
+                                <strong>Asesor: </strong><br>
+                                {{item.asesor}}<br><hr>
+                                <strong>Correo Asesor: </strong><br>
+                                {{item.correo_asesor}}<br><hr>
+                                <strong>Carril: </strong><br>
+                                {{item.carril}}<br><hr>
+                                <strong>Vehiculo: </strong><br>
+                                {{item.vehiculo.vehiculo}} | {{item.vehiculo.modelo}} | {{item.vehiculo.color}}<br><br>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>

@@ -108,6 +108,21 @@ function service_usuarios(app) {
 			});
 		}
 
+		this.historial = function(id, autorizado, callback) {
+			console.log(id)
+			$http({
+				method: 'GET',
+				url:'http://localhost:8000/usuario/historial?id=' + id,
+				headers: headers
+			}).then(function successCallback(response) {
+				// console.log(response);
+				var historial =  response.data;
+				autorizado(historial);
+
+			}, function errorCallback(response) {
+				console.log(response);
+			});
+		};
 
 		this.cargar_autos = function(callback) {
 			$http({
@@ -154,6 +169,26 @@ function service_usuarios(app) {
 
 		};
 
+		/**
+		 * Editar informacion del usuario
+		 * TODO: cambiar url por produccion
+		 */
+		this.editar_usuario = function(datos, callback) {
+			console.log(datos);
+			$http({
+				method: 'POST',
+				url: 'http://localhost:8000/usuario/editar',
+				headers: headers,
+				data: datos
+			}).then(function successCallback(response) {
+				showAlert('Tu nueva información ha sido guardada.', '¡Datos Guardados!');
+				callback();
+			}, function errorCallback(response) {
+				if(typeof response.data != 'string')
+					response.data = Object.values(response.data).toString();
+				showAlert(response.data,'Error al guardar');
+			});
+		};
 
 		this.restablecer_contrasena = function(param) {
 			data = {
