@@ -1,7 +1,7 @@
 /**
  * Modified MIT License
  * 
- * Copyright 2015 OneSignal
+ * Copyright 2017 OneSignal
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,25 +29,48 @@
 #import <Cordova/CDV.h>
 #import <Cordova/CDVPlugin.h>
 
-@interface OneSignalPush : CDVPlugin {}
+#import <OneSignal/OneSignal.h>
 
+@interface OneSignalPush : CDVPlugin <OSPermissionObserver, OSSubscriptionObserver, OSEmailSubscriptionObserver>
+
+- (void)setNotificationReceivedHandler:(CDVInvokedUrlCommand*)command;
+- (void)setNotificationOpenedHandler:(CDVInvokedUrlCommand*)command;
 - (void)init:(CDVInvokedUrlCommand*)command;
+
+- (void)setInFocusDisplaying:(CDVInvokedUrlCommand*)command;
+- (void)getPermissionSubscriptionState:(CDVInvokedUrlCommand*)command;
+
+
+- (void)addPermissionObserver:(CDVInvokedUrlCommand*)command;
+- (void)addSubscriptionObserver:(CDVInvokedUrlCommand*)command;
+- (void)addEmailSubscriptionObserver:(CDVInvokedUrlCommand *)command;
+
 - (void)getTags:(CDVInvokedUrlCommand*)command;
 - (void)getIds:(CDVInvokedUrlCommand*)command;
-- (void)getIds_GameThrive:(CDVInvokedUrlCommand*)command;
 - (void)sendTags:(CDVInvokedUrlCommand*)command;
 - (void)deleteTags:(CDVInvokedUrlCommand*)command;
+- (void)promptForPushNotificationsWithUserResponse:(CDVInvokedUrlCommand*)command;
 - (void)registerForPushNotifications:(CDVInvokedUrlCommand*)command;
-- (void)enableInAppAlertNotification:(CDVInvokedUrlCommand*)command;
 - (void)setSubscription:(CDVInvokedUrlCommand*)command;
 - (void)postNotification:(CDVInvokedUrlCommand*)command;
 - (void)setLogLevel:(CDVInvokedUrlCommand*)command;
 - (void)promptLocation:(CDVInvokedUrlCommand*)command;
-- (void)setEmail:(CDVInvokedUrlCommand*)command;
+- (void)syncHashedEmail:(CDVInvokedUrlCommand*)command;
+- (void)setLocationShared:(CDVInvokedUrlCommand *)command;
+
+//email
+- (void)setEmail:(CDVInvokedUrlCommand *)command;
+- (void)setUnauthenticatedEmail:(CDVInvokedUrlCommand *)command;
+- (void)logoutEmail:(CDVInvokedUrlCommand *)command;
 
 // Android Only
 - (void)enableVibrate:(CDVInvokedUrlCommand*)command;
 - (void)enableSound:(CDVInvokedUrlCommand*)command;
-- (void)enableNotificationsWhenActive:(CDVInvokedUrlCommand*)command;
+- (void)clearOneSignalNotifications:(CDVInvokedUrlCommand*)command;
 
+- (void)userProvidedPrivacyConsent:(CDVInvokedUrlCommand *)command;
+- (void)setRequiresUserPrivacyConsent:(CDVInvokedUrlCommand *)command;
+- (void)provideUserConsent:(CDVInvokedUrlCommand *)command;
+    
+    
 @end

@@ -112,7 +112,7 @@ function service_usuarios(app) {
 			console.log(id)
 			$http({
 				method: 'GET',
-				url:'http://localhost:8000/usuario/historial?id=' + id,
+				url:'http://api.grupoaldorf.com.mx/usuario/historial?id=' + id,
 				headers: headers
 			}).then(function successCallback(response) {
 				// console.log(response);
@@ -177,7 +177,7 @@ function service_usuarios(app) {
 			console.log(datos);
 			$http({
 				method: 'POST',
-				url: 'http://localhost:8000/usuario/editar',
+				url: 'http://api.grupoaldorf.com.mx/usuario/editar',
 				headers: headers,
 				data: datos
 			}).then(function successCallback(response) {

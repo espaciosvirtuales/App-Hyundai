@@ -27,30 +27,48 @@ document.addEventListener('deviceready', function () {
 		visualLevel: 4
 	});*/
 
-	var notificationOpenedCallback = function (jsonData) {
-		console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
-	};
+//  var notificationOpenedCallback = function (jsonData) {
+//    console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+//  };
+//
+//  /*window.plugins.OneSignal
+//     .startInit("4d67f342-1f8a-49e8-b466-0097dfaf12a1", "15796307218")
+//     .handleNotificationOpened(notificationOpenedCallback)
+//     .endInit(); */
+//
+//  window.plugins.OneSignal.init("4d67f342-1f8a-49e8-b466-0097dfaf12a1", {
+//      googleProjectNumber: "15796307218"
+//    },
+//    notificationOpenedCallback);
+//
+//  // Show an alert box if a notification comes in when the user is in your app.
+//  window.plugins.OneSignal.enableInAppAlertNotification(true);
+//
+//  window.plugins.OneSignal.getIds(function (ids) {
+//    /* save in storage */
+//    window.localStorage.setItem('push_id', ids.userId);
+//    console.log('Registered PUSH_ID');
+//    console.log(window.localStorage.getItem('push_id'));
+//  });
+                          
+var iosSettings = {};
+iosSettings["kOSSettingsKeyAutoPrompt"] = true;
+iosSettings["kOSSettingsKeyInAppLaunchURL"] = false;
 
-	/*window.plugins.OneSignal
-	   .startInit("4d67f342-1f8a-49e8-b466-0097dfaf12a1", "15796307218")
-	   .handleNotificationOpened(notificationOpenedCallback)
-	   .endInit(); */
+window.plugins.OneSignal
+.startInit("4d67f342-1f8a-49e8-b466-0097dfaf12a1")
+.iOSSettings(iosSettings)
+.handleNotificationReceived(function(jsonData) {
+alert("Notification received:\n" + JSON.stringify(jsonData));
+console.log('Did I receive a notification: ' + JSON.stringify(jsonData));
+})
+.endInit();
 
-	window.plugins.OneSignal.init("4d67f342-1f8a-49e8-b466-0097dfaf12a1", {
-			googleProjectNumber: "15796307218"
-		},
-		notificationOpenedCallback);
-
-	// Show an alert box if a notification comes in when the user is in your app.
-	window.plugins.OneSignal.enableInAppAlertNotification(true);
-
-	window.plugins.OneSignal.getIds(function (ids) {
-		/* save in storage */
-		window.localStorage.setItem('push_id', ids.userId);
-		console.log('Registered PUSH_ID');
-		console.log(window.localStorage.getItem('push_id'));
-	});
-
+window.plugins.OneSignal.getPermissionSubscriptionState(function(status) {
+window.localStorage.setItem('push_id',status.subscriptionStatus.userId);
+//  showAlert(status.subscriptionStatus.userId, "mensaje");
+});
+                          
 	if (cordova.platformId == 'android') {
 		StatusBar.backgroundColorByHexString("#333");
 	}
